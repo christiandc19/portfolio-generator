@@ -17,6 +17,7 @@ const promptUser = () => {
       }
     }
 },
+
 {
   type: "input",
   name: "github",
@@ -30,28 +31,29 @@ const promptUser = () => {
     }
   }
 },
+
 {
   type: "confirm",
   name: "confirmAbout",
   message: "Would you like to enter an information about yourself for an 'About' section?",
-  when: ({confirmAbout}) => {
-    if (confirmAbout) {
-      return true
+  default: true
+},
+
+{
+  type: "input",
+  name: "about",
+  message: "Provide information about yourself:",
+  when: ({ confirmAbout }) => {
+    if(confirmAbout) {
+      return true;
     } else {
       return false;
     }
   }
 },
-{
-  type: "input",
-  name: "about",
-  message: "Provide information about yourself:"
-},
+
 ]);
 }
-
-
-
 
 const promptProject = portfolioData => {
   console.log(`
@@ -151,6 +153,5 @@ promptUser()
 //   fs.writeFile("index.html", pageHTML, err => {
 //     if (err) throw err;
 //     console.log("Portfolio complete! Check out index.html to see the output!")
-
 //   })
 
